@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- * head 태그 안에 script를 넣는 경우 *
+    parsing HTML > fetching js - executing js > parsing HTML
+    js 파일이 무거울 경우 사용자가 페이지를 보는데까지 시간이 오래 걸림-->
+    <script src="javascript/main.js"></script>
+</head>
+<body>
+    <div></div>
+    <!-- * body 안에 script를 넣는 경우 * 
+    parsing HTML > fetching js - executing js
+    화면은 빠르게 로드되지만 js가 필요한 화면인 경우 화면 깨짐-->
+    <!-- <script src="main.js"></script> -->
+    <!-- * asyn 사용 * 
+    parsing HTML & fetching js(병렬 진행) > executing js(다운로드 된 js 바로 실행) > parsing HTML 
+    js 다운로드시간은 절약되지만 parsing이 완료되기 전 js가 실행되기 때문에
+    js에서 DOM 요소를 조작하는 경우 위험 부담이 있고, 여전히 사용자가 페이지를 보는데까지 시간이 걸림
+    #script 선언 순서와 상관 없이 먼저 다운로드 된 js부터 실행하므로 순서에 의존적인 js에는 적합하지 않은 방법-->
+    <!-- <script asyn src="main.js"></script> -->
+    <!-- * defer 사용 * 
+    parsing HTML & fetching js > executing js(parsing 끝나고)
+    제일 효율적이고 안전한 방법 -->
+    <!-- <script defer src="main.js"></script> -->
+</body>
+</html>
